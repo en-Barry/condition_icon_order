@@ -22,7 +22,7 @@ RUN mkdir $APP_ROOT
 WORKDIR $APP_ROOT
 ADD ./Gemfile Gemfile
 ADD ./Gemfile.lock Gemfile.lock
-ENV BUNDLER_VERSION 2.1.4
+ENV BUNDLER_VERSION 2.3.4
 CMD ["cron", "-f"] 
 RUN bundle config set path 'vendor/bundle' \
         && gem install bundler -v $BUNDLER_VERSION \
