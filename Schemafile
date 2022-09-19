@@ -21,12 +21,21 @@ create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force:
 end
 
 create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-  t.text "player_ids", null: false, array: true
   t.belongs_to "team", null: false, foreign_key: true
   t.belongs_to "game", null: false, foreign_key: true
+  t.integer "batter_1", null: false
+  t.integer "batter_2", null: false
+  t.integer "batter_3", null: false
+  t.integer "batter_4", null: false
+  t.integer "batter_5", null: false
+  t.integer "batter_6", null: false
+  t.integer "batter_7", null: false
+  t.integer "batter_8", null: false
+  t.integer "batter_9", null: false
 end
 
 create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
   t.datetime "start_at", null: false
-  t.text "team_ids", array: true
+  t.text "home_team_id", null: false
+  t.text "visitor_team_id", null: false
 end
