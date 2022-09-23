@@ -5,8 +5,7 @@ class Scraping < ApplicationRecord
 
   def self.get_teams
     url = 'https://baseball.yahoo.co.jp/npb/teams/'  
-    html = URI.open(url).read
-    doc = Nokogiri::HTML.parse(html)
+    doc = doc_from_url(url)
 
     doc.css('.bb-teamHead__title').children.children.each do |team_name|
       team = Team.new
